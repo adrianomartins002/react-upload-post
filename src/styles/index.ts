@@ -1,4 +1,4 @@
-export default {
+const theme = {
     COLORS: {
       BACKGROUND: '#F7F7F7',
   
@@ -28,3 +28,5 @@ export default {
       TEXT: 'DMSans_400Regular',
     },
   };
+
+  export default theme;
