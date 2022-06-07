@@ -1,46 +1,48 @@
-# Getting Started with Create React App
+# BuildBox
+Projeto para criação da solução para feed e postagens
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Iniciando
+Essas instruções fornecerão uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste. Consulte implantação para obter notas sobre como implantar o projeto em 
+um sistema ativo.
 
-In the project directory, you can run:
+## Pré-requisitos:
+Para execução e desenvolvimento do projeto é necessário, ou que tenha instalado:
+- nodejs
+- yarn ou npm
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Desenvolvido com
+ - JavaScript
+ - [React](https://reactjs.org/)
+ - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Execução pro projeto
+ - Para executar o projeto pelo navegador executando na própria máquina basta baixar os pacotes do package.json 
+ utilizando o comando ``` yarn ou npm install ``` e logo após o download terminar, utilizar o comando ``` yarn start```.
 
-### `npm run build`
+## Executar os testes 
+- Para executar os testes unitários basta rodar o comando ``` yarn test ou npm run test``` no terminal no diretório raiz.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Deploy do projeto
+- O deploy foi configurado para adicionar os arquivos ao bucket no S3 da amazon webservices
+## CI/CD
+- O CI/CD utilizei do próprio deploy do github actions, criando um arquivo .yml e adicionando as configurações para selecionar as variaveis de ambiente configuradas no gitlab, referentes ao bucket do S3 criado na amazon webservices.
+- Criei ao todo 3 estágios, o de build, o de testes e o de deploy, o de build basicamente para baixar as dependencias e verificar se o react não encontra nenhum problema no build do projeto, no stage de testes verifico se todos os testes unitários executaram de forma correta, e o de deploy pego os arquivos estáticos gerados no diretorio de build e subo para o bucket do S3 da Amazon.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Git
+- Relacionado ao git não fiz tantos pontos de melhoria, só criei os commits seguindo os padrões do gitflow de feat/fix/bug etc, o ideal é que a cada commit de nova feature criasse uma nova branch para fazer o merge request, mas como só eu trabalhei no projeto achei desnecessário por enquanto.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Pontos de melhoria:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Funcionalidaes
+- Utilização dos hooks do react para criação e manutenção dos componentes
+- Utilização da lib react-testing-library para criação de testes unitários
+- Criação do .yml para build do projeto e upload para aws S3
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Autores
+- Adriano Martins de Oliveira Sousa.
