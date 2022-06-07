@@ -6,28 +6,24 @@ interface Feed {
     postDescription: string;
 }
 
-interface FeedContext {
+interface FeedContextType {
     feedList: Feed[];
-    setFeedList: (data: Feed[]) => void
+    setFeedList: Function
 }
 
-const initialList: FeedContext = {
+const initialList: FeedContextType = {
     feedList: [],
-    setFeedList: (data: Feed[] | []) => { }
+    setFeedList: ()=>{}
 }
 
-export const FeedContext = createContext<FeedContext>(initialList);
+export const FeedContext = createContext<FeedContextType>(initialList);
 
 type FeedProviderProps = {
     children: ReactNode;
 }
 
 function FeedProvider({ children }: FeedProviderProps) {
-    const [feedList, setFeedList] = useState([{
-        imgSrc: "",
-        author: "",
-        postDescription: ""
-    }]);
+    const [feedList, setFeedList] = useState([]);
 
     return (
         <FeedContext.Provider value={{
