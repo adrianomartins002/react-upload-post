@@ -8,12 +8,12 @@ interface Feed {
 
 interface FeedContext {
     feedList: Feed[];
-    setFeedList: (data: Feed[]) => void
+    setFeedList: Function
 }
 
 const initialList: FeedContext = {
     feedList: [],
-    setFeedList: (data: Feed[] | []) => { }
+    setFeedList: ()=>{}
 }
 
 export const FeedContext = createContext<FeedContext>(initialList);
@@ -23,11 +23,7 @@ type FeedProviderProps = {
 }
 
 function FeedProvider({ children }: FeedProviderProps) {
-    const [feedList, setFeedList] = useState([{
-        imgSrc: "",
-        author: "",
-        postDescription: ""
-    }]);
+    const [feedList, setFeedList] = useState([]);
 
     return (
         <FeedContext.Provider value={{
