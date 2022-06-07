@@ -31,7 +31,7 @@ export function CardPost() {
     return (
         <Container>
 
-            {selectedImage != "" ?
+            {selectedImage !== "" ?
                 <ContainerImagePicked>
                     <PickedImage src={selectedImage} />
                     <BsTrashFill style={{ marginLeft: 10 }} width={20} height={20} fill="red" onClick={() => setSelectedImage("")} />

@@ -6,17 +6,17 @@ interface Feed {
     postDescription: string;
 }
 
-interface FeedContext {
+interface FeedContextType {
     feedList: Feed[];
     setFeedList: Function
 }
 
-const initialList: FeedContext = {
+const initialList: FeedContextType = {
     feedList: [],
     setFeedList: ()=>{}
 }
 
-export const FeedContext = createContext<FeedContext>(initialList);
+export const FeedContext = createContext<FeedContextType>(initialList);
 
 type FeedProviderProps = {
     children: ReactNode;
