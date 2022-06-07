@@ -1,7 +1,7 @@
 import { useFeed } from "../../context/feed";
 import { CardFeed } from "../CardFeed";
 import { CardPost } from "../CardPost";
-import { Container, ContainerFeed, ContainerPost } from "./styles";
+import { Container } from "./styles";
 
 
 export function Body() {
