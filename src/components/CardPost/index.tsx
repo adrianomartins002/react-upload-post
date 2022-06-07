@@ -6,18 +6,19 @@ import { BsTrashFill } from "react-icons/bs";
 
 export function CardPost() {
     const { feedList, setFeedList } = useFeed();
-    const [title, setTitle] = useState<string>("");
+    const [author, setAuthor] = useState<string>("");
     const [selectedImage, setSelectedImage] = useState("");
     const [description, setDescription] = useState<string>("");
 
     function handleClick() {
         setFeedList([...feedList, {
             imgSrc: selectedImage,
-            author: title,
+            author: author,
             postDescription: description
         }])
 
-        setTitle("");
+        setSelectedImage("");
+        setAuthor("");
         setDescription("");
     }
 
@@ -43,12 +44,12 @@ export function CardPost() {
 
             }
             <ContainerInput>
-                <Input onChange={event => setTitle(event.target.value)} type={"text"}></Input>
+                <Input value={author} onChange={event => setAuthor(event.target.value)} type={"text"}></Input>
             </ContainerInput>
             <ContainerInput style={{
                 height: 80
             }}>
-                <InputTextArea onChange={event => setDescription(event.target.value)}></InputTextArea>
+                <InputTextArea value={description} onChange={event => setDescription(event.target.value)}></InputTextArea>
             </ContainerInput>
             <ContainerButtons>
                 <Button onClick={() => { }}>Descartar</Button>
